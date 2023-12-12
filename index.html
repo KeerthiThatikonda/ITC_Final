@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lights Out Game</title>
+</head>
+<body>
+    <h1>Lights Out</h1>
+    <div class="info">
+        <p> <span id="moves"></span>&nbsp;&nbsp; || &nbsp;&nbsp;<span id="timer"></span></p>
+    </div>
+    <div class="grid-container" id="gridContainer"></div>
+    <button id="startBtn" onclick="startGame()">Start</button><br>
+    <footer>
+        <h1 style="text-align: center; color: brown;">Addendum</h1>
+            <p><strong>createGrid():</strong><br>
+            The <code>createGrid</code> function initializes the game grid by first clearing the content of the HTML element with the ID 'gridContainer'. It then generates a 5x5 grid of div elements, each representing a cell. Event listeners are added to each cell, linking them to the <code>toggleLights</code> function. The grid is filled with random initial values (true or false), and the visual appearance of each cell is updated accordingly.</p>
+            
+            <p><strong>toggleLights(row, col):</strong><br>
+            The <code>toggleLights</code> function is responsible for toggling the state of the clicked cell and its adjacent cells in the up, down, left, and right directions. The function checks whether the game has started and exits if not. It then toggles the cells' states, increments the moves counter, updates the moves display, and checks for a win condition after each move.</p>
+            
+            <p><strong>toggleCell(row, col):</strong><br>
+            The <code>toggleCell</code> function toggles the state of a specific cell identified by its row and column indices if it is within the boundaries of the grid. It updates the cell's state in the grid and calls the <code>updateCell</code> function to reflect the change visually.</p>
+            
+            <p><strong>updateCell(row, col):</strong><br>
+            The <code>updateCell</code> function visually updates the background color of a specific cell based on its state in the grid. If the state is true, the background color is set to '#333' (dark); otherwise, it is set to '#eee' (light).</p>
+            
+            <p><strong>updateMoves():</strong><br>
+            The <code>updateMoves</code> function updates the displayed number of moves on the HTML element with the ID 'moves' by setting its text content to 'Moves: ' concatenated with the current number of moves.</p>
+            
+            <p><strong>startTimer():</strong><br>
+            The <code>startTimer</code> function initiates a timer using the <code>setInterval</code> method. It increments the seconds counter every second and updates the displayed timer with the formatted time.</p>
+            
+            <p><strong>stopTimer():</strong><br>
+            The <code>stopTimer</code> function clears the interval created by <code>startTimer</code>, effectively stopping the timer.</p>
+            
+            <p><strong>formatTime(seconds):</strong><br>
+            The <code>formatTime</code> function takes the elapsed time in seconds and formats it into a 'mm:ss' string, handling zero-padding for minutes and seconds.</p>
+            
+            <p><strong>checkWin():</strong><br>
+            The <code>checkWin</code> function checks if all cells in the grid are turned off (false). If so, it stops the timer, displays a congratulatory alert with the number of moves and time taken, and resets the game using the <code>resetGame</code> function.</p>
+            
+            <p><strong>startGame():</strong><br>
+            The <code>startGame</code> function resets the move and time counters, updates the moves display, creates a new grid, starts the timer, and sets the <code>gameStarted</code> flag to true.</p>
+            
+            <p><strong>resetGame():</strong><br>
+            The <code>resetGame</code> function stops the timer, creates a new grid, resets the timer and move counters, updates the moves display, and sets the <code>gameStarted</code> flag to false.</p>
+            
+            <p><strong>Initial setup:</strong><br>
+            The code concludes with the initial setup, calling the <code>createGrid</code> function to set up the initial game grid.</p>
+            
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
